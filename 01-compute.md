@@ -4,6 +4,8 @@ GCP VM:
 # Create:
 $ gcloud compute instances create zz1 --machine-type e2-micro --zone asia-northeast1-a
 
+# Try connecting using browser SSH.
+
 # Delete:
 $ gcloud compute instances delete zz1 --zone asia-northeast1-a --quiet
 ```
