@@ -1,3 +1,5 @@
+Demonstrate VM creation through CLI.
+
 GCP VM (Tokyo region):
 
 ``` sh
