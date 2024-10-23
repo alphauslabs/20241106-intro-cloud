@@ -3,7 +3,9 @@ package main
 import (
 	"flag"
 	"log"
+	"net/http"
 	"runtime"
+	"strconv"
 	"time"
 )
 
@@ -11,11 +13,22 @@ var (
 	multi = flag.Bool("multi", false, "Set to true to use all CPU/cores")
 )
 
-func main() {
-	flag.Parse()
+func api(w http.ResponseWriter, r *http.Request) {
 	numCpu := 1
 	if *multi {
 		numCpu = runtime.NumCPU()
+	}
+
+	var ts int64 = 30
+	hts := r.Header.Get("x-timeout-s")
+	if hts != "" {
+		v, err := strconv.ParseInt(hts, 10, 64)
+		if err != nil {
+			log.Println(err)
+			return
+		}
+
+		ts = v
 	}
 
 	done := make(chan int)
@@ -31,15 +44,24 @@ func main() {
 		}()
 	}
 
-	for i := 0; i < 10; i++ {
-		if !*multi {
-			log.Println("loading a single CPU...")
-		} else {
-			log.Println("loading all CPUs...")
+	go func() {
+		for i := 0; i < int(ts); i++ {
+			if !*multi {
+				log.Println("loading a single CPU...")
+			} else {
+				log.Println("loading all CPUs...")
+			}
+
+			time.Sleep(time.Second * 1)
 		}
 
-		time.Sleep(time.Second * 1)
-	}
+		close(done)
+	}()
+}
 
-	close(done)
+func main() {
+	flag.Parse()
+	http.HandleFunc("/api", api)
+	log.Println("Listening on :8080")
+	http.ListenAndServe(":8080", nil)
 }
