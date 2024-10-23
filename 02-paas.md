@@ -1,6 +1,7 @@
 Use GKE for PaaS demo.
 
 ``` sh
+# Create cluster:
 gcloud container clusters create zz \
        --project=mobingi-main \
        --zone=asia-northeast1-b \
