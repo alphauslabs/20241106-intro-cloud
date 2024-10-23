@@ -16,4 +16,7 @@ gcloud container clusters create zz \
        --enable-ip-alias \
        --addons=HttpLoadBalancing \
        --release-channel=regular
+
+# Delete cluster:
+$ gcloud container clusters --zone asia-northeast1-b delete zz --quiet
 ```
