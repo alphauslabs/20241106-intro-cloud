@@ -28,7 +28,8 @@ $ aws autoscaling create-auto-scaling-group \
   --max-size 1 \
   --availability-zones ap-northeast-1a
 
-# Connect using browser SSH.
+# 1) Connect using browser SSH.
+# 2) Delete an instance to confirm autoscaling.
 
 # Delete auto-scaling-group:
 $ aws autoscaling delete-auto-scaling-group --auto-scaling-group-name zz-asg --force-delete
