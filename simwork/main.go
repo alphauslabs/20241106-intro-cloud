@@ -47,9 +47,9 @@ func api(w http.ResponseWriter, r *http.Request) {
 	go func() {
 		for i := 0; i < int(ts); i++ {
 			if !*multi {
-				log.Println("loading a single CPU...")
+				log.Println(i, "loading a single CPU...")
 			} else {
-				log.Println("loading all CPUs...")
+				log.Println(i, "loading all CPUs...")
 			}
 
 			time.Sleep(time.Second * 1)
