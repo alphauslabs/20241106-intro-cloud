@@ -1,3 +1,9 @@
+Deploy https://github.com/rastapasta/mapscii to Cloud Run.
+
+``` sh
+$ TBD
+```
+
 Deploy https://filebrowser.org/installation to Cloud Run.
 
 ``` sh
