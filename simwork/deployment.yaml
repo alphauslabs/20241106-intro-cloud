@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: simwork
-        image: asia.gcr.io/mobingi-main/simwork:v1
+        image: asia.gcr.io/labs-169405/simwork:v1
         resources:
           requests:
             cpu: 100m

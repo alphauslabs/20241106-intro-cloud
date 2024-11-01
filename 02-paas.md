@@ -3,7 +3,7 @@ Use GKE for PaaS demo.
 ``` sh
 # Create a zonal cluster:
 $ gcloud container clusters create zz \
-    --project=mobingi-main \
+    --project=labs-169405 \
     --zone=asia-northeast1-b \
     --node-locations=asia-northeast1-b \
     --machine-type=e2-standard-2 \
@@ -20,5 +20,5 @@ $ gcloud container clusters create zz \
     --release-channel=regular
 
 # Delete cluster:
-$ gcloud container clusters --zone asia-northeast1-b delete zz --quiet
+$ gcloud container clusters --project labs-169405 --zone asia-northeast1-b delete zz --quiet
 ```
