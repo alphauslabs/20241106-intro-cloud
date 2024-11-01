@@ -4,7 +4,7 @@ Deploy https://filebrowser.org/installation to Cloud Run.
 # Doesn't work yet.
 $ gcloud run deploy filebrowser \
     --project=labs-169405 \
-    --image=asia.gcr.io/labs-169405/filebrowser:v3 \
+    --image=asia.gcr.io/labs-169405/filebrowser:v4 \
     --region=asia-northeast1 \
     --allow-unauthenticated
 ```
