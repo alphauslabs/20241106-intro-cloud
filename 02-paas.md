@@ -19,6 +19,9 @@ $ gcloud container clusters create zz \
     --addons=HttpLoadBalancing \
     --release-channel=regular
 
+# Point to cluster:
+$ gcloud container clusters get-credentials zz --project labs-169405 --zone asia-northeast1-b
+
 # Delete cluster:
 $ gcloud container clusters --project labs-169405 --zone asia-northeast1-b delete zz --quiet
 ```
